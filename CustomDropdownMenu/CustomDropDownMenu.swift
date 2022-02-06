@@ -9,34 +9,53 @@ import SwiftUI
 
 struct CustomDropdownMenu: View {
     @State var isSelecting = false
-    @State var selectionTitle = "Selected option"
+    @State var selectionTitle = ""
     @State var selectedRowId = 0
 
     var body: some View {
-        VStack {
-            HStack {
-                Text(selectionTitle)
-                    .font(.system(size: 16, weight: .semibold, design: .rounded))
-                    
-                Spacer()
-                Image(systemName: "chevron.down")
-                .font(.system(size: 16, weight: .semibold))
-            }
-            .padding(.horizontal)
-            .foregroundColor(.white)
-            
-            DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 0, title: "First Item", iconImage: Image(systemName: "trash"), onSelect: {}))
+        GeometryReader { _ in
+            VStack {
+                HStack {
+                    Text(selectionTitle)
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .animation(.none)
+                    Spacer()
+                    Image(systemName: "chevron.down")
+                    .font(.system(size: 16, weight: .semibold))
+                    .rotationEffect(.degrees( isSelecting ? -180 : 0))
 
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical)
-        .background(Color(uiColor: UIColor.systemIndigo))
-        .cornerRadius(5)
-        .onTapGesture {
-            isSelecting.toggle()
+                }
+                .padding(.horizontal)
+                .foregroundColor(.white)
+                
+                if isSelecting {
+                    Divider()
+                        .background(.white)
+                        .padding(.horizontal)
+
+                    VStack(spacing: 5) {
+                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 1, title: "Messages", iconImage: Image(systemName: "envelope"), onSelect: {}))
+                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 2, title: "Archived", iconImage: Image(systemName: "archivebox"), onSelect: {}))
+                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 3, title: "Trash", iconImage: Image(systemName: "trash"), onSelect: {}))
+                    }
+
+                }
+
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical)
+            .background(Color(uiColor: UIColor.systemIndigo))
+            .cornerRadius(5)
+            .onTapGesture {
+                isSelecting.toggle()
+            }
+            .onAppear {
+                selectedRowId = 1
+                selectionTitle = "Messages"
+            }
+            .animation(.easeInOut(duration: 0.3))
         }
     }
-
 }
 
 struct DropdownItem: Identifiable {
