@@ -11,6 +11,8 @@ struct CustomDropdownMenu: View {
     @State var isSelecting = false
     @State var selectionTitle = ""
     @State var selectedRowId = 0
+    let items: [DropdownItem]
+
 
     var body: some View {
         GeometryReader { _ in
@@ -34,9 +36,7 @@ struct CustomDropdownMenu: View {
                         .padding(.horizontal)
 
                     VStack(spacing: 5) {
-                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 1, title: "Messages", iconImage: Image(systemName: "envelope"), onSelect: {}))
-                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 2, title: "Archived", iconImage: Image(systemName: "archivebox"), onSelect: {}))
-                        DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 3, title: "Trash", iconImage: Image(systemName: "trash"), onSelect: {}))
+                        dropDownItemsList()
                     }
                 }
 
@@ -49,10 +49,16 @@ struct CustomDropdownMenu: View {
                 isSelecting.toggle()
             }
             .onAppear {
-                selectedRowId = 1
-                selectionTitle = "Messages"
+                selectedRowId = items[0].id
+                selectionTitle = items[0].title
             }
             .animation(.easeInOut(duration: 0.3))
+        }
+    }
+    
+    private func dropDownItemsList() -> some View {
+        ForEach(items) { item in
+            DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: item)
         }
     }
 }
@@ -99,7 +105,11 @@ struct DropdownMenuItemView: View {
 
 struct CustomDropdownMenu_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDropdownMenu()
+        CustomDropdownMenu(items: [
+            DropdownItem(id: 1, title: "Messages", iconImage: Image(systemName: "envelope"), onSelect: {}),
+            DropdownItem(id: 2, title: "Archived", iconImage: Image(systemName: "archivebox"), onSelect: {}),
+            DropdownItem(id: 3, title: "Trash", iconImage: Image(systemName: "trash"), onSelect: {})
+        ])
             .padding(.horizontal)
     }
 }
