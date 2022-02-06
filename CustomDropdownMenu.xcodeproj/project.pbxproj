@@ -11,7 +11,7 @@
 		500AB34E27AEB2EC00E83D2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AB34D27AEB2EC00E83D2A /* ContentView.swift */; };
 		500AB35027AEB2EE00E83D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 500AB34F27AEB2EE00E83D2A /* Assets.xcassets */; };
 		500AB35327AEB2EE00E83D2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 500AB35227AEB2EE00E83D2A /* Preview Assets.xcassets */; };
-		500AB35A27AEB36C00E83D2A /* CustomDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AB35927AEB36C00E83D2A /* CustomDropDownMenu.swift */; };
+		500AB35A27AEB36C00E83D2A /* CustomDropdownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AB35927AEB36C00E83D2A /* CustomDropdownMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +20,7 @@
 		500AB34D27AEB2EC00E83D2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		500AB34F27AEB2EE00E83D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		500AB35227AEB2EE00E83D2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		500AB35927AEB36C00E83D2A /* CustomDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownMenu.swift; sourceTree = "<group>"; };
+		500AB35927AEB36C00E83D2A /* CustomDropdownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropdownMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			children = (
 				500AB34B27AEB2EC00E83D2A /* CustomDropdownMenuApp.swift */,
 				500AB34D27AEB2EC00E83D2A /* ContentView.swift */,
-				500AB35927AEB36C00E83D2A /* CustomDropDownMenu.swift */,
+				500AB35927AEB36C00E83D2A /* CustomDropdownMenu.swift */,
 				500AB34F27AEB2EE00E83D2A /* Assets.xcassets */,
 				500AB35127AEB2EE00E83D2A /* Preview Content */,
 			);
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				500AB35A27AEB36C00E83D2A /* CustomDropDownMenu.swift in Sources */,
+				500AB35A27AEB36C00E83D2A /* CustomDropdownMenu.swift in Sources */,
 				500AB34E27AEB2EC00E83D2A /* ContentView.swift in Sources */,
 				500AB34C27AEB2EC00E83D2A /* CustomDropdownMenuApp.swift in Sources */,
 			);
