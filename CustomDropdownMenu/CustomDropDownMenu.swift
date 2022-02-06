@@ -38,7 +38,6 @@ struct CustomDropdownMenu: View {
                         DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 2, title: "Archived", iconImage: Image(systemName: "archivebox"), onSelect: {}))
                         DropdownMenuItemView(isSelecting: $isSelecting, selectionId: $selectedRowId, selectiontitle: $selectionTitle, item: .init(id: 3, title: "Trash", iconImage: Image(systemName: "trash"), onSelect: {}))
                     }
-
                 }
 
             }
