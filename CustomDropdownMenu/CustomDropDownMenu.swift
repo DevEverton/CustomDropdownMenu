@@ -113,3 +113,19 @@ struct CustomDropdownMenu_Previews: PreviewProvider {
             .padding(.horizontal)
     }
 }
+
+extension View {
+    func customDropdownMenu(items: [DropdownItem]) -> some View {
+       ZStack {
+            VStack {
+                CustomDropdownMenu(items: items)
+                    .padding(.horizontal)
+                Spacer()
+            }
+            .zIndex(10)
+            self
+                .offset(y: 60)
+                .zIndex(1)
+        }
+    }
+}
